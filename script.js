@@ -26,14 +26,14 @@ function onCalcClick(){
     var time=document.getElementById("time").value;
     var output=document.getElementById("output");
     var simpleInterest=(principal*rate*time)/100;
-    output.innerHTML=(principal);
+    output.innerHTML=(parseFloat(principal)).toFixed(2);
 
     var clear = document.getElementById('clear')
 
     function onClearClick(){
-        principal=''
-        rate="";
-        time="";
+        document.getElementById("principal").value='';
+        document.getElementById("rate").value=''
+        document.getElementById("time").value=''
         output.innerHTML=0+".00";
     }
     clear.addEventListener('click',onClearClick)

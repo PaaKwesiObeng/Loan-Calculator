@@ -1,12 +1,8 @@
 
-var principal=parseFloat(document.getElementById("principal").value);
-var rate=document.getElementById("rate");
-var time=document.getElementById("time");
-var calculate=document.getElementById("calculate");
-var output=document.getElementById("output");
-var simpleInterest=(principal*rate*time)/100;
+
 var themeContainer=document.getElementById("themeContainer");
 const colorSwitch=document.querySelector(".colorSwitch");
+var calculate=document.getElementById("calculate");
 
 const root = document.documentElement;
 
@@ -25,16 +21,25 @@ colorSwitch.addEventListener('click', themeClick);
 
 
 function onCalcClick(){
-    // output.innerHTML=simpleInterest;
-    output.innerHTML=principal.value;
-}
+    var principal=document.getElementById("principal").value
+    var rate=document.getElementById("rate").value;
+    var time=document.getElementById("time").value;
+    var output=document.getElementById("output");
+    var simpleInterest=(principal*rate*time)/100;
+    output.innerHTML=(principal);
 
-function onClearClick(){
-    principal.valueOf="";
-    rate.value="";
-    time.value="";
-    output.innerHTML=0+".00";
+    var clear = document.getElementById('clear')
+
+    function onClearClick(){
+        principal=''
+        rate="";
+        time="";
+        output.innerHTML=0+".00";
+    }
+    clear.addEventListener('click',onClearClick)
 }
+calculate.addEventListener('click',onCalcClick)
+
 
 // DAFAULT THEME BUTTON
 const default_theme = document.getElementById('default_theme');
